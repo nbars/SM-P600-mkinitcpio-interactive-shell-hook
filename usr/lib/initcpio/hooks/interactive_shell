@@ -1,0 +1,16 @@
+# vim:set ft=sh:
+run_latehook ()
+{
+  wait_time=5
+  dmesg -n crit
+  echo "Press any key to open an interactive shell."
+  echo "Waiting for $wait_time seconds before continuing."
+
+  if read -t $wait_time; then
+    echo "Launching interactive shell, type 'exit' to resume the boot process."
+    launch_interactive_shell
+  else
+    echo "No key was pressed, continuing boot process..."
+  fi
+  dmesg -n debug
+}
