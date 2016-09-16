@@ -2,7 +2,7 @@
 run_latehook ()
 {
   wait_time=5
-  dmesg -n crit
+  dmesg -n 4
   echo "Press any key to open an interactive shell."
   echo "Waiting for $wait_time seconds before continuing."
 
@@ -12,5 +12,5 @@ run_latehook ()
   else
     echo "No key was pressed, continuing boot process..."
   fi
-  dmesg -n debug
+  dmesg -n 7
 }
